@@ -51,4 +51,15 @@ describe(`Function 'checkPassword':`, () => {
   it(`should return 'false' for a password with spaces`, () => {
     expect(checkPassword('Password 1!')).toBe(false);
   });
+
+  it(`should return 'true' for a valid password with exactly 8 characters`,
+    () => {
+      expect(checkPassword('A1!bcdef')).toBe(true);
+    });
+
+  it(`should always return a boolean`, () => {
+    expect(typeof checkPassword('Password1!')).toBe('boolean');
+    expect(typeof checkPassword('invalid')).toBe('boolean');
+    expect(typeof checkPassword('')).toBe('boolean');
+  });
 });
